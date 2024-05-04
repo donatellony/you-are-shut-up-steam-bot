@@ -2,6 +2,7 @@
 using SteamWebAPI2.Interfaces;
 using SteamWebAPI2.Utilities;
 using YouAreShutUp.SteamBot.Steam.ApiClients.Implementations;
+using YouAreShutUp.SteamBot.Steam.ApiClients.Interfaces;
 using YouAreShutUp.SteamBot.Steam.Configuration.Options;
 
 namespace YouAreShutUp.SteamBot.Steam.Configuration.Extensions;
@@ -33,8 +34,8 @@ internal static class SteamConfigurationExtensions
             return webInterfaceFactory.CreateSteamStoreInterface();
         });
 
-        services.AddSingleton<SteamPlayerClient>();
-        services.AddSingleton<SteamStoreClient>();
+        services.AddSingleton<ISteamPlayerClient, SteamPlayerClient>();
+        services.AddSingleton<ISteamStoreClient, SteamStoreClient>();
     }
 
     private static void AddConfiguration(WebApplicationBuilder builder)
