@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YouAreShutUp.SteamBot", "YouAreShutUp.SteamBot\YouAreShutUp.SteamBot.csproj", "{D23E0729-CD8E-47DA-B12D-F1E14CA84FFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YouAreShutUp.Contracts", "YouAreShutUp.Contracts\YouAreShutUp.Contracts.csproj", "{01263283-A6DD-4996-ACF9-B266C3182F49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YouAreShutUp.MessageBus", "YouAreShutUp.MessageBus\YouAreShutUp.MessageBus.csproj", "{3143E2B8-7DE2-4753-A796-546F6C86159F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D23E0729-CD8E-47DA-B12D-F1E14CA84FFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D23E0729-CD8E-47DA-B12D-F1E14CA84FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D23E0729-CD8E-47DA-B12D-F1E14CA84FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D23E0729-CD8E-47DA-B12D-F1E14CA84FFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01263283-A6DD-4996-ACF9-B266C3182F49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01263283-A6DD-4996-ACF9-B266C3182F49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01263283-A6DD-4996-ACF9-B266C3182F49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01263283-A6DD-4996-ACF9-B266C3182F49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3143E2B8-7DE2-4753-A796-546F6C86159F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3143E2B8-7DE2-4753-A796-546F6C86159F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3143E2B8-7DE2-4753-A796-546F6C86159F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3143E2B8-7DE2-4753-A796-546F6C86159F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
