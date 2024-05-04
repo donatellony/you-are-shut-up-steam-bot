@@ -48,8 +48,10 @@ public class
         };
     }
 
-    private async Task AddAppGenreHours(OwnedGameModel ownedGame, Dictionary<string, double> genreHours)
+    private async Task AddAppGenreHours(OwnedGameModel? ownedGame, Dictionary<string, double> genreHours)
     {
+        if (ownedGame is null)
+            return;
         var appDetails = await _steamStoreClient.GetAppDetailsAsync(ownedGame.AppId);
         if (appDetails is null)
             return;
