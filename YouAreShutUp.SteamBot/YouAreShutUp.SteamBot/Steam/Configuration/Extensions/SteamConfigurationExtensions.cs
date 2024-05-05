@@ -14,6 +14,7 @@ internal static class SteamConfigurationExtensions
 {
     internal static WebApplicationBuilder AddSteam(this WebApplicationBuilder builder)
     {
+        AddRedis(builder);
         AddSteamConfiguration(builder);
         AddSteamServices(builder.Services);
         return builder;
