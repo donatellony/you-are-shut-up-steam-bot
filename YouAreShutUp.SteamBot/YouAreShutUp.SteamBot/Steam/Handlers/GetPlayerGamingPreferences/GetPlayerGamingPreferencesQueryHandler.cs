@@ -84,24 +84,26 @@ public class
     private async Task<GetPlayerGamingPreferencesQueryResult?> TryGetCachedPreferences(
         GetPlayerGamingPreferencesQuery request)
     {
-        var key = new TypedCacheKey(nameof(GetPlayerGamingPreferencesQueryResult), request.SteamPlayerId.ToString());
-        var value = await _cacheService.GetAsync(key);
-        if (value is null)
-            return null;
-        var cachedResult = JsonSerializer.Deserialize<GetPlayerGamingPreferencesQueryResult>(value);
-        if (cachedResult is null)
-            return null;
-        var finalCachedResponse = new GetPlayerGamingPreferencesQueryResult
-        {
-            ExternalMessageId = request.ExternalMessageId, GamingPreferences = cachedResult.GamingPreferences
-        };
-        return finalCachedResponse;
+        // var key = new TypedCacheKey(nameof(GetPlayerGamingPreferencesQueryResult), request.SteamPlayerId.ToString());
+        // var value = await _cacheService.GetAsync(key);
+        // if (value is null)
+        //     return null;
+        // var cachedResult = JsonSerializer.Deserialize<GetPlayerGamingPreferencesQueryResult>(value);
+        // if (cachedResult is null)
+        //     return null;
+        // var finalCachedResponse = new GetPlayerGamingPreferencesQueryResult
+        // {
+        //     ExternalMessageId = request.ExternalMessageId, GamingPreferences = cachedResult.GamingPreferences
+        // };
+        // return finalCachedResponse;
+        return null;
     }
 
     private async Task<bool> SetValueToCache(ulong steamPlayerId, GetPlayerGamingPreferencesQueryResult result)
     {
-        var key = new TypedCacheKey(nameof(GetPlayerGamingPreferencesQueryResult), steamPlayerId.ToString());
-        var value = JsonSerializer.Serialize(result);
-        return await _cacheService.SetAsync(key, value);
+        // var key = new TypedCacheKey(nameof(GetPlayerGamingPreferencesQueryResult), steamPlayerId.ToString());
+        // var value = JsonSerializer.Serialize(result);
+        // return await _cacheService.SetAsync(key, value);
+        return true;
     }
 }
