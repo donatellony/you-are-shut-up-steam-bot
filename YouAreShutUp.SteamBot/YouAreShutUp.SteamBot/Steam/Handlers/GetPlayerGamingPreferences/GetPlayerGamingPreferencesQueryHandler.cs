@@ -29,9 +29,11 @@ public class
     public async Task<GetPlayerGamingPreferencesQueryResult> Handle(GetPlayerGamingPreferencesQuery request,
         CancellationToken cancellationToken)
     {
-        var cachedResponse = await TryGetCachedPreferences(request.SteamPlayerId);
+        var cachedResponse = await TryGetCachedPreferences(request);
         if (cachedResponse is not null)
+        {
             return cachedResponse;
+        }
 
         var ownedGames = await _steamPlayerClient.GetOwnedGamesAsync(request.SteamPlayerId);
         Dictionary<string, double> genreHours = new();
@@ -79,14 +81,21 @@ public class
         }
     }
 
-    private async Task<GetPlayerGamingPreferencesQueryResult?> TryGetCachedPreferences(ulong steamPlayerId)
+    private async Task<GetPlayerGamingPreferencesQueryResult?> TryGetCachedPreferences(
+        GetPlayerGamingPreferencesQuery request)
     {
-        var key = new TypedCacheKey(nameof(GetPlayerGamingPreferencesQueryResult), steamPlayerId.ToString());
+        var key = new TypedCacheKey(nameof(GetPlayerGamingPreferencesQueryResult), request.SteamPlayerId.ToString());
         var value = await _cacheService.GetAsync(key);
         if (value is null)
             return null;
         var cachedResult = JsonSerializer.Deserialize<GetPlayerGamingPreferencesQueryResult>(value);
-        return cachedResult;
+        if (cachedResult is null)
+            return null;
+        var finalCachedResponse = new GetPlayerGamingPreferencesQueryResult
+        {
+            ExternalMessageId = request.ExternalMessageId, GamingPreferences = cachedResult.GamingPreferences
+        };
+        return finalCachedResponse;
     }
 
     private async Task<bool> SetValueToCache(ulong steamPlayerId, GetPlayerGamingPreferencesQueryResult result)
